@@ -171,7 +171,11 @@ class talking_head_generator():
         super(talking_head_generator, self).__init__()
         self.args = args
 
-    def generate_talking_head(self):
+    def generate_talking_head(self, audio_temp_path):
         args = self.args
-        phoneme = parse_phoneme_file(args.phoneme_path)
-        test_with_input_audio_and_image(args.img_path,args.audio_path,phoneme,config.GENERATOR_CKPT,config.AUDIO2POSE_CKPT,args.save_dir)
+        if audio_temp_path:
+            audio_path = audio_temp_path
+        else:
+            audio_path = args.audio_path
+        phoneme = parse_phoneme_file(f'{args.save_dir}/phoneme.json')
+        test_with_input_audio_and_image(args.img_path, audio_path, phoneme,config.GENERATOR_CKPT,config.AUDIO2POSE_CKPT,args.save_dir)

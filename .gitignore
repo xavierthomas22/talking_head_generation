@@ -1,0 +1,5 @@
+talking_head_generation/AVCT/checkpoint
+talking_head_generation/AVCT/models
+talking_head_generation/AVCT/opencv-4.1.0
+outputs/*
+samples/*
